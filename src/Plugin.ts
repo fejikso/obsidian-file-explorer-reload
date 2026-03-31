@@ -1,5 +1,6 @@
 import {
   FileSystemAdapter,
+  Notice,
   TFolder
 } from 'obsidian';
 import { PluginBase } from 'obsidian-dev-utils/obsidian/Plugin/PluginBase';
@@ -13,6 +14,12 @@ import { ReloadFolderWithSubfoldersCommand } from './Commands/ReloadFolderWithSu
 const ROOT_PATH = '/';
 
 export class Plugin extends PluginBase<PluginTypes> {
+  private getPreferredReloadTargetPath(): string {
+    const activeFile = this.app.workspace.getActiveFile();
+    const parent = activeFile?.parent;
+    return parent?.path ?? ROOT_PATH;
+  }
+
   public async reloadFileExplorer(): Promise<void> {
     await this.reloadFolder(ROOT_PATH, true);
   }
@@ -69,6 +76,19 @@ export class Plugin extends PluginBase<PluginTypes> {
     new ReloadFileExplorerCommand(this).register();
     new ReloadFolderCommand(this).register();
     new ReloadFolderWithSubfoldersCommand(this).register();
+
+    this.addRibbonIcon('refresh-ccw', 'Reload file tree', () => {
+      void (async () => {
+        try {
+          const targetPath = this.getPreferredReloadTargetPath();
+          await this.reloadFolder(targetPath, true);
+        } catch (e) {
+          new Notice('File Explorer Reload: failed to reload file tree. See console for details.');
+          // eslint-disable-next-line no-console -- surfaced for debugging unexpected Obsidian states.
+          console.error('File Explorer Reload: ribbon reload failed', e);
+        }
+      })();
+    });
   }
 
   private combinePath(directoryPath: string, fileName: string): string {

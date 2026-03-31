@@ -1,8 +1,10 @@
 # File Explorer Reload
 
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/mnaoumov)
-[![GitHub release](https://img.shields.io/github/v/release/mnaoumov/obsidian-file-explorer-reload)](https://github.com/mnaoumov/obsidian-file-explorer-reload/releases)
-[![GitHub downloads](https://img.shields.io/github/downloads/mnaoumov/obsidian-file-explorer-reload/total)](https://github.com/mnaoumov/obsidian-file-explorer-reload/releases)
+[![GitHub release](https://img.shields.io/github/v/release/fejikso/obsidian-file-explorer-reload)](https://github.com/fejikso/obsidian-file-explorer-reload/releases)
+[![GitHub downloads](https://img.shields.io/github/downloads/fejikso/obsidian-file-explorer-reload/total)](https://github.com/fejikso/obsidian-file-explorer-reload/releases)
+
+> **Fork notice**: This repository is a fork of [mnaoumov/obsidian-file-explorer-reload](https://github.com/mnaoumov/obsidian-file-explorer-reload).
+> The upstream project is authored by **Michael Naumov**; this fork is maintained by **fejikso**.
 
 This is a plugin for [Obsidian](https://obsidian.md/) that reloads the file explorer files list.
 
@@ -15,6 +17,13 @@ The usual workaround for this problem is to close and reopen `Obsidian` or invok
 
 The plugin adds `Reload File Explorer` command, `Reload Folder` and `Reload Folder with Subfolders` context menu items.
 
+## This fork
+
+- **Maintainer**: [fejikso](https://github.com/fejikso)
+- **Scope**: personal build with minor tweaks
+- **Notable differences**:
+  - Adds a ribbon “refresh” button to reload the file tree (reloads the active file’s parent folder when possible; otherwise reloads the whole tree)
+
 Also you can use this plugin's functionality programmatically
 
 ```js
@@ -23,6 +32,11 @@ await app.plugins.plugins['file-explorer-reload'].reloadDirectory(
   isRecursive
 );
 ```
+
+## Upstream / Credits
+
+- **Upstream author**: [Michael Naumov](https://github.com/mnaoumov/)
+- **Upstream repository**: [mnaoumov/obsidian-file-explorer-reload](https://github.com/mnaoumov/obsidian-file-explorer-reload)
 
 ## Installation
 
@@ -37,7 +51,7 @@ If you want to bring Obsidian team's attention to the problem solved by this plu
 To install the latest beta release of this plugin (regardless if it is available in [the official Community Plugins repository](https://obsidian.md/plugins) or not), follow these steps:
 
 1. Ensure you have the [BRAT plugin](https://obsidian.md/plugins?id=obsidian42-brat) installed and enabled.
-2. Click [Install via BRAT](https://intradeus.github.io/http-protocol-redirector?r=obsidian://brat?plugin=https://github.com/mnaoumov/obsidian-file-explorer-reload).
+2. Click [Install via BRAT](https://intradeus.github.io/http-protocol-redirector?r=obsidian://brat?plugin=https://github.com/fejikso/obsidian-file-explorer-reload).
 3. An Obsidian pop-up window should appear. In the window, click the `Add plugin` button once and wait a few seconds for the plugin to install.
 
 ## Debugging
@@ -56,13 +70,13 @@ For more details, refer to the [documentation](https://github.com/mnaoumov/obsid
 
 <!-- markdownlint-disable MD033 -->
 
-<a href="https://www.buymeacoffee.com/mnaoumov" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="60" width="217"></a>
+If you’d like to support the upstream author, please see the upstream repository.
 
 <!-- markdownlint-enable MD033 -->
 
 ## My other Obsidian resources
 
-[See my other Obsidian resources](https://github.com/mnaoumov/obsidian-resources).
+Upstream: [mnaoumov/obsidian-resources](https://github.com/mnaoumov/obsidian-resources).
 
 ## License
 
